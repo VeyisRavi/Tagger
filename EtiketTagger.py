@@ -575,3 +575,59 @@ client.run_until_disconnected()
 print(">> Bot çalışmaktadir merak etme 🚀 @birsamil bilgi alabilirsin. <<")
 client.run_until_disconnected()
 run_until_disconnected()
+
+
+### Oyun Kodları ###
+
+DART_E_MOJI = "🎯"
+@Client.on_message(filters.command("dart"))
+async def throw_dart(client, message):
+    rep_mesg_id = message.id
+    if message.reply_to_message:
+        rep_mesg_id = message.reply_to_message.id
+    await client.send_dice(
+        chat_id=message.chat.id,
+        emoji=DART_E_MOJI,
+        disable_notification=True,
+        reply_to_message_id=rep_mesg_id
+    )
+    
+
+DICE_E_MOJI = "🎲"
+@Client.on_message(filters.command("zar"))
+async def roll_dice(client, message):
+    rep_mesg_id = message.id
+    if message.reply_to_message:
+        rep_mesg_id = message.reply_to_message.id
+    await client.send_dice(
+        chat_id=message.chat.id,
+        emoji=DICE_E_MOJI,
+        disable_notification=True,
+        reply_to_message_id=rep_mesg_id
+    )    
+
+GOAL_E_MOJI = "⚽"
+@Client.on_message(filters.command("top"))
+async def roll_dice(client, message):
+    rep_mesg_id = message.id
+    if message.reply_to_message:
+        rep_mesg_id = message.reply_to_message.id
+    await client.send_dice(
+        chat_id=message.chat.id,
+        emoji=GOAL_E_MOJI,
+        disable_notification=True,
+        reply_to_message_id=rep_mesg_id
+    )
+
+TRY_YOUR_LUCK = "🎰"
+@Client.on_message(filters.command("luck"))
+async def luck_cownd(client, message):
+    rep_mesg_id = message.id
+    if message.reply_to_message:
+        rep_mesg_id = message.reply_to_message.id
+    await client.send_dice(
+        chat_id=message.chat.id,
+        emoji=TRY_YOUR_LUCK,
+        disable_notification=True,
+        reply_to_message_id=rep_mesg_id
+    )
